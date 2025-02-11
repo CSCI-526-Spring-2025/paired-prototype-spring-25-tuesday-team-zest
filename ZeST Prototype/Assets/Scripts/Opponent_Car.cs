@@ -6,6 +6,8 @@ public class Opponent_Car : MonoBehaviour
     public float rotationSpeed = 10.0f; //Player rotation speed
     public float bounceForce = 20.0f;
     private Rigidbody carRB;
+    public GameObject finishGoal;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,13 +19,7 @@ public class Opponent_Car : MonoBehaviour
     {
         carRB.AddForce(transform.forward * speed * Time.fixedDeltaTime, ForceMode.VelocityChange);
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Bouncy"))
-        {
-           // carRB.AddForce(other.transform.forward * bounceForce, ForceMode.Impulse);
-        }
-    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Bouncy"))

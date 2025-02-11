@@ -27,13 +27,7 @@ public class PlayerController : MonoBehaviour
         playerRB.MoveRotation(playerRB.rotation * turnRotation);
         //playerRB.AddTorque(transform.up * turnAmount*rotationSpeed * Time.fixedDeltaTime, ForceMode.VelocityChange);
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Bouncy"))
-        {
-           // playerRB.AddForce(transform.forward*(-1) * bounceForce, ForceMode.Impulse);
-        }
-    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Bouncy"))
