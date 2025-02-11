@@ -3,10 +3,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 2.0f; //Player linear speed
+    public float speed = 1.5f; //Player linear speed
     public float rotationSpeed = 10.0f; //Player rotation speed
-
-    public float bounceForce = 70.0f;
+    public float bounceForce = 20.0f;
     private Rigidbody playerRB;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -32,8 +31,17 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("Bouncy"))
         {
-            Debug.Log("Entered");
-            playerRB.AddForce(transform.forward*(-1) * bounceForce, ForceMode.Impulse);
+           // playerRB.AddForce(transform.forward*(-1) * bounceForce, ForceMode.Impulse);
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Bouncy"))
+        {
+            foreach (ContactPoint contact in collision.contacts)
+            {
+                playerRB.AddForce(contact.normal * bounceForce, ForceMode.Impulse);
+            }
         }
     }
 }
