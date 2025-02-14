@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class Opponent_Car : MonoBehaviour
 {
-    public float speed = 1.2f; //Player linear speed
-    public float rotationSpeed = 10.0f; //Player rotation speed
-    public float bounceForce = 20.0f;
+    public float speed = 0.3f; //Player linear speed
+    public float rotationSpeed = 20.0f; //Player rotation speed
+    public float bounceForce = 5.0f;
     private Rigidbody carRB;
     public GameObject finishGoal;
 
