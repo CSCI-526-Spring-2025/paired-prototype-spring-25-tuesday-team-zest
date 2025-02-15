@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 public class Opponent_Car : MonoBehaviour
@@ -30,4 +32,5 @@ public class Opponent_Car : MonoBehaviour
             }
         }
     }
+    
 }

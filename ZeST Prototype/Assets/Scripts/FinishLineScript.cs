@@ -2,11 +2,13 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class FinishLineScript : MonoBehaviour
 {
     private int position = 1;//Assume the player is in 1st position
     bool gameDone = false;
+    bool[] carsFinished;
     public GameObject winPage;
     public GameObject winPosObj;
     TextMeshProUGUI winPosText;
@@ -15,20 +17,30 @@ public class FinishLineScript : MonoBehaviour
     {
         winPage.SetActive(false);
         winPosText = winPosObj.GetComponent<TextMeshProUGUI>();
+        carsFinished = new bool[2] { false, false };
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name != "Player_Car" && !gameDone)
+        if (other.gameObject.name == "Car_Opp_1" && !gameDone && !carsFinished[0])
+        { 
+            position++;
+            carsFinished[0] = true;
+        }
+        else if (other.gameObject.name == "Car_Opp_2" && !gameDone && !carsFinished[1])
         {
             position++;
+            carsFinished[1] = true;
         }
-        if (other.gameObject.name=="Player_Car")//The player has passed the finish line
+        else if (other.gameObject.name=="Player_Car")//The player has passed the finish line
         {
             switch(position)
             { 
@@ -38,8 +50,8 @@ public class FinishLineScript : MonoBehaviour
                         break;
                 case 3: winPosText.text = "Congratulations! \nYou came 3rd!";
                         break;
-                case 4: winPosText.text = "Congratulations! \nYou came 4th!";
-                        break;
+                default: winPosText.text = "Congratulations! \nYou finished the race!";
+                         break;
             }
             gameDone = true;
             winPage.SetActive(true);
