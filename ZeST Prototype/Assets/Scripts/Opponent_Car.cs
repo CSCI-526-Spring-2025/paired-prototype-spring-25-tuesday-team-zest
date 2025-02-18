@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Opponent_Car : MonoBehaviour
 {
-    public float speed = 0.3f; //Player linear speed
-    public float rotationSpeed = 20.0f; //Player rotation speed
+    public float speed = 1.5f; //Player linear speed    //Test value = 0.3
+    public float rotationSpeed = 30.0f; //Player rotation speed
     public float bounceForce = 5.0f;
     private Rigidbody carRB;
     public GameObject finishGoal;

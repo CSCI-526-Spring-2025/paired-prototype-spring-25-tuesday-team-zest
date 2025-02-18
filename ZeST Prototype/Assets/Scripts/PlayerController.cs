@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 0.6f; //Player linear speed
-    public float rotationSpeed = 20.0f; //Player rotation speed
+    public float speed = 3.0f; //Player linear speed    //Test value = 0.6
+    public float rotationSpeed = 30.0f; //Player rotation speed
     public float bounceForce = 5.0f;
     private Rigidbody playerRB;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
