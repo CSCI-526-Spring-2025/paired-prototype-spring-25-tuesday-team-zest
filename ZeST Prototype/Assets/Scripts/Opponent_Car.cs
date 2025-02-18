@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Opponent_Car : MonoBehaviour
 {
-    public float speed = 1.5f; //Player linear speed    //Test value = 0.3
+    public float speed = 4.5f; //Player linear speed    //Test value = 0.3
     public float rotationSpeed = 30.0f; //Player rotation speed
     public float bounceForce = 5.0f;
     private Rigidbody carRB;
@@ -27,7 +27,6 @@ public class Opponent_Car : MonoBehaviour
         //Logic for adding the innovative collision mechanics of the game.
         if (collision.gameObject.CompareTag("Bouncy"))
         {
-
             foreach (ContactPoint contact in collision.contacts)
             {
                 carRB.AddForce(contact.normal * bounceForce, ForceMode.Impulse);

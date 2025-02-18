@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 3.0f; //Player linear speed    //Test value = 0.6
+    public float speed = 9.0f; //Player linear speed    //Test value = 0.6
     public float rotationSpeed = 30.0f; //Player rotation speed
     public float bounceForce = 5.0f;
     private Rigidbody playerRB;
@@ -19,14 +19,12 @@ public class PlayerController : MonoBehaviour
     {
         float moveAmount = Input.GetAxis("Vertical");
         Vector3 movement = transform.forward * moveAmount * speed * Time.fixedDeltaTime;
-        //playerRB.MovePosition(playerRB.position + movement);
         playerRB.AddForce(transform.forward * moveAmount * speed * Time.fixedDeltaTime, ForceMode.VelocityChange);
         
         // Rotate player based on horizontal input.
         float turnAmount = Input.GetAxis("Horizontal") * rotationSpeed * Time.fixedDeltaTime;
         Quaternion turnRotation = Quaternion.Euler(0f, turnAmount, 0f);
         playerRB.MoveRotation(playerRB.rotation * turnRotation);
-        //playerRB.AddTorque(transform.up * turnAmount*rotationSpeed * Time.fixedDeltaTime, ForceMode.VelocityChange);
     }
 
     private void OnCollisionEnter(Collision collision)

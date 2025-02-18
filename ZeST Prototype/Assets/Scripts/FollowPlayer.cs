@@ -1,6 +1,6 @@
 using UnityEngine;
 
-//Script for following the player in isometric angle through the race
+//Script for following the player along the isometric angle through the race
 public class FollowPlayer : MonoBehaviour
 {
     public GameObject player;
