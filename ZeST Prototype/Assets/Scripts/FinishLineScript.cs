@@ -30,6 +30,7 @@ public class FinishLineScript : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        //Logic to correctly determine the finihs states of the opponent cars
         if (other.gameObject.name == "Car_Opp_1" && !gameDone && !carsFinished[0])
         { 
             position++;
@@ -42,8 +43,10 @@ public class FinishLineScript : MonoBehaviour
         }
         else if (other.gameObject.name=="Player_Car")//The player has passed the finish line
         {
+            //Logic to correctly determine the finihs states of the player car.
             switch(position)
             { 
+                //Each cases decribing the finish status of the player in the race.
                 case 1: winPosText.text = "Congratulations! \nYou came 1st!";
                         break;
                 case 2: winPosText.text = "Congratulations! \nYou came 2nd!";

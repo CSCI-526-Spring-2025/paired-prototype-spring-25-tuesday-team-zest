@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        //Logic for adding the innovative collision mechanics of the game
         if (collision.gameObject.CompareTag("Bouncy"))
         {
             foreach (ContactPoint contact in collision.contacts)

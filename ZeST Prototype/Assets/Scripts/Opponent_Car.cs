@@ -24,8 +24,10 @@ public class Opponent_Car : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        //Logic for adding the innovative collision mechanics of the game.
         if (collision.gameObject.CompareTag("Bouncy"))
         {
+
             foreach (ContactPoint contact in collision.contacts)
             {
                 carRB.AddForce(contact.normal * bounceForce, ForceMode.Impulse);
